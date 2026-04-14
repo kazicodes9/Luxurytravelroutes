@@ -1,0 +1,293 @@
+/* RESET */
+body {
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: #f5f7fa;
+    padding-top: 0; /* ❌ removed space for fixed header */
+}
+
+   /* HEADER (TRANSPARENT + FIXED) */
+header {
+    position: fixed;   /* 🔥 keep it fixed */
+    top: 0;
+    width: 95%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+
+    background: rgba(0, 0, 0, 0.3); /* 🔥 semi-transparent */
+    backdrop-filter: blur(8px);     /* 🔥 glass effect */
+    color: white;
+}
+
+/* LOGO */
+.logo img {
+    height: 60px;
+}
+
+/* NAV */
+nav a {
+    margin-left: 25px;
+    color: white; /* 🔥 changed for visibility */
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* UNDERLINE HOVER EFFECT */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: orange;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: orange;
+}
+
+/* SLIDER */
+.slider {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: fade 1s ease-in-out;
+}
+
+/* DARK OVERLAY (NEW 🔥) */
+.slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.slide.active {
+    display: block;
+}
+
+/* FADE ANIMATION */
+@keyframes fade {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEXT ABOVE OVERLAY */
+   .slide h1 {
+    font-family: 'Playfair Display', serif; /* 🔥 new font */
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+    background: rgba(0,0,0,0.5);
+    padding: 12px 18px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* SLIDER BUTTONS */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* HERO */
+.hero {
+    height: 85vh; /* 🔥 full screen height */
+    
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('/static/images/web-background.jpeg') center/cover no-repeat;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* PACKAGES */
+.packages {
+    padding: 40px;
+}
+
+.packages h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+/* CARDS GRID */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 12px;
+    font-size: 17px;
+}
+
+.card p {
+    padding: 0 12px;
+    color: gray;
+}
+
+.card button {
+    margin: 12px;
+    padding: 10px;
+    width: 90%;
+    background: #ff7a00;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card button:hover {
+    background: #e56b00;
+}
+
+/* FOOTER */
+footer {
+    background: #0a1f44;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+/* VIDEO BACKGROUND */
+.hero-video {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEXT OVER VIDEO */
+.hero-video h1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 45px;
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+    padding: 12px 20px;
+    border-radius: 6px;
+}
+.about, .why, .services, .testimonials, .cta {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    color: #555;
+    font-size: 16px;
+}
+
+/* CTA */
+.cta {
+    background: #0a1f44;
+    color: white;
+}
+
+.cta button {
+    padding: 12px 25px;
+    background: orange;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}

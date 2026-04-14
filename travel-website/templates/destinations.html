@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Destinations</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h2 class="logo">LuxuryTravelRoutes</h2>
+
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('destinations_page') }}">Destinations</a>
+        <a href="{{ url_for('visa') }}">Worldwide Visa</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Explore Our Destinations</h1>
+</section>
+
+<section class="about">
+    <h2>Explore the World With Us</h2>
+    <p>
+        We offer a wide range of international destinations including Dubai, Maldives, Thailand, 
+        Singapore and many more. Each destination is carefully selected to give you the best 
+        travel experience with comfort and luxury.
+    </p>
+</section>
+
+<section class="why">
+    <h2>Why Travel With LuxuryTravelRoutes</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Handpicked Destinations</h3>
+            <p>Only the best places across the world.</p>
+        </div>
+
+        <div class="card">
+            <h3>Custom Packages</h3>
+            <p>Trips designed as per your needs.</p>
+        </div>
+
+        <div class="card">
+            <h3>Expert Guidance</h3>
+            <p>Professional support throughout your journey.</p>
+        </div>
+    </div>
+</section>
+<section class="services">
+    <h2>Travel Tips</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Plan Ahead</h3>
+            <p>Book your trips early to get best deals.</p>
+        </div>
+
+        <div class="card">
+            <h3>Check Visa Requirements</h3>
+            <p>Always verify visa rules before travel.</p>
+        </div>
+
+        <div class="card">
+            <h3>Pack Smart</h3>
+            <p>Carry essentials and travel light.</p>
+        </div>
+    </div>
+</section>
+<section class="cta">
+    <h2>Ready to Explore?</h2>
+    <a href="{{ url_for('contact') }}">
+        <button>Book Your Trip</button>
+    </a>
+</section>
+
+<section class="packages">
+    <h2>All Destinations</h2>
+
+    <div class="cards">
+        {% for d in destinations %}
+        <div class="card">
+            <h3>{{ d }}</h3>
+
+            <a href="{{ url_for('destination_page', name=d) }}">
+                <button>Explore</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Travel Agency | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

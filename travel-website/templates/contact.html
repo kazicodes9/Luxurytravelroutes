@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h2>Luxurytravelroutes</h2>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('destinations_page') }}">Destinations</a>
+        <a href="{{ url_for('visa') }}">Worldwide Visa</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </nav>
+
+</header>
+<section class="hero">
+    <h1>Contact Us</h1>
+</section>
+
+<section class="packages">
+    <h2>Get in Touch</h2>
+
+    <form style="max-width:400px; margin:auto;">
+        <input type="text" placeholder="Your Name" required style="width:100%; padding:10px; margin:10px 0;">
+        <input type="email" placeholder="Your Email" required style="width:100%; padding:10px; margin:10px 0;">
+        <textarea placeholder="Your Message" required style="width:100%; padding:10px; margin:10px 0;"></textarea>
+
+        <button style="width:100%; padding:10px; background:#ff7a00; color:white; border:none;">
+            Send Message
+        </button>
+    </form>
+
+</section>
+
+</body>
+</html>

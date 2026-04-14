@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LuxuryTravelRoutes</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <h2 class="logo">LuxuryTravelRoutes</>
+    </h2>
+
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('destinations_page') }}">Destinations</a>
+        <a href="{{ url_for('visa') }}">Worldwide Visa</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </nav>
+</header>
+
+<!-- SLIDER -->
+<section class="slider">
+
+    <div class="slide active">
+        <img src="/static/images/abu dhabi.jpg">
+        <h1>Experience Abu Dhabi</h1>
+    </div>
+
+    <div class="slide ">
+        <img src="/static/images/dubai.jpg">
+        <h1>Explore Dubai</h1>
+    </div>
+
+    <div class="slide">
+        <img src="/static/images/thailand.jpg">
+        <h1>Discover Thailand</h1>
+    </div>
+
+    <div class="slide">
+        <img src="/static/images/maldives.jpg">
+        <h1>Enjoy Maldives</h1>
+    </div>
+
+    <div class="slide">
+        <img src="/static/images/singapore.jpg">
+        <h1>Swing in Singapore</h1>
+    </div>
+
+</section>
+
+<!-- PACKAGES -->
+<section class="packages">
+    <h2>Top Tour Packages</h2>
+
+    <div class="cards">
+        {% for p in packages %}
+        <div class="card">
+            <img src="/static/images/{{ p.img }}">
+            <h3>{{ p.name }}</h3>
+            <p>{{ p.price }} | {{ p.days }}</p>
+            <button>Book Now</button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="cta">
+    <h2>Plan Your Dream Trip Today</h2>
+    <a href="{{ url_for('contact') }}">
+        <button>Contact Us</button>
+    </a>
+</section>
+<section class="about">
+    <h2>About LuxuryTravelRoutes</h2>
+    <p>
+        LuxuryTravelRoutes is your trusted travel partner offering premium tour packages 
+        across the world. We specialize in creating unforgettable travel experiences with 
+        comfort, safety, and affordability.
+    </p>
+</section>
+<section class="why">
+    <h2>Why Choose Us</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Best Price</h3>
+            <p>Affordable packages with no hidden costs.</p>
+        </div>
+
+        <div class="card">
+            <h3>24/7 Support</h3>
+            <p>We are always available to help you anytime.</p>
+        </div>
+
+        <div class="card">
+            <h3>Trusted Service</h3>
+            <p>Thousands of happy travelers trust us.</p>
+        </div>
+    </div>
+</section>
+<section class="services">
+    <h2>Our Services</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Tour Packages</h3>
+            <p>Explore international and domestic destinations.</p>
+        </div>
+
+        <div class="card">
+            <h3>Visa Assistance</h3>
+            <p>Hassle-free visa processing worldwide.</p>
+        </div>
+
+        <div class="card">
+            <h3>Hotel Booking</h3>
+            <p>Best hotels at affordable prices.</p>
+        </div>
+    </div>
+</section>
+<section class="testimonials">
+    <h2>What Our Clients Say</h2>
+
+    <div class="cards">
+        <div class="card">
+            <p>"Amazing service! My Dubai trip was perfect."</p>
+            <h4>- Ahmed</h4>
+        </div>
+
+        <div class="card">
+            <p>"Very professional and affordable packages."</p>
+            <h4>- Sara</h4>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Travel Agency | All Rights Reserved</p>
+</footer>
+
+<script src="/static/js/script.js"></script>
+
+</body>
+</html>
